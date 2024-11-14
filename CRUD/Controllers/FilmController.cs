@@ -47,20 +47,19 @@ namespace CRUD.Controllers
         // GET: FilmController/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            return View(films.FirstOrDefault(f => f.Id == id));
         }
-
 
         // POST: FilmController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, Film film)
+        public ActionResult Edit(int id, Film mp4)
         {
             Film film = films.FirstOrDefault(x => x.Id == id);
-            film.Name = film.Name;
-            film.Description = film.Description;
-            film.Price = film.Price;
 
+            film.Name = mp4.Name;
+            film.Description = mp4.Description;
+            film.Price = movie.Price;
             return RedirectToAction(nameof(Index));
         }
 
